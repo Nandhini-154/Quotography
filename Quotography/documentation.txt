@@ -1,0 +1,50 @@
+//Node modules is not being uploaded in Repository.To run project install node modules by running this cmd 
+in terminal and run project.  npm install
+
+
+Middleware: A code or a function that runs on a server before getting request or sending response.
+
+for example: The code we used in app1.js
+app.get('/create',(req,res)=>{
+    res.render('create',{title:'Create Quote'});
+})
+these are the examples of middleware.The order of function is more imp bcoz server reads the file from top to bottom.
+That's why we are writing the 404 function at last.
+//Manually using middleware by below code
+//Implementing MiddleWare
+app.use((req,res,next)=>{
+ console.log('new request made');
+ console.log('host: ', req.hostname);
+ console.log('path: ', req.path);
+ console.log('method: ',req.method);
+ next();
+});
+app.use((req,res)=>{
+    console.log("in the next middleware");
+ });
+
+Instead of writing middleware codes at line by line we can use thirty party middleware by installing it.
+=>To install, Type npm install morgan
+
+
+--------------------------------------------
+STATIC FILES
+
+Like html,we cannot reference the stylesheet in a head section if we do so, the styles are not applied
+to the page Becoz each and every file is being protected by the browser without giving access to the
+user to modify it.To do so, We have to make it "public" using the inbuilt function and then create 
+public folder then add stylesheet or external files to the folder.
+
+How to connect with Database(Mongodb)?
+-Login to Mongodb Atlas
+-Create cluster
+-Create Database
+-Create Collection
+-Database access->Set Username->Set Password
+-Cluster->Connect->Copy the connection string and Paste(in the file which you need db)->Replace with ur password and Username
+
+Mongoose: Mongoose is a ODM(Object Document Mapping) library which helps us to connect to db and perform various operations.
+
+Schemas: Structure of the document,Contains properties and property types.
+ example:User schema has name(string),age(number),address(varchar) like these..Here name is property,string is a type
+ 

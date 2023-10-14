@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("E:/node-cc/partials/header.ejs") %> 
+<body>  
+    <%- include("E:/node-cc/partials/nav.ejs") %>
+    <h1>Give me your Quote!</h1>
+    <div>
+    <form action="/quotes" method="POST" class="create-quote" >
+        <label>Title of the Quote</label>
+        <input type="text" id="title" name="title" placeholder="Type your Title of the quote"><br><br><br>
+        <label>Write a quote</label>
+        <textarea id="quote" name="quote" placeholder="Type your quote"required></textarea><br><br><br>
+        <label>Your Name/Author</label>
+        <input type="text" name="name" id="name" placeholder="Type your name/Author" required><br><br><br>
+        <button>Submit</button>
+    </form>
+</div>
+<%- include("E:/node-cc/partials/footer.ejs") %>
+</body>
+</html>

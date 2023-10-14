@@ -1,0 +1,35 @@
+<html lang="en">
+  <%- include("E:/node-cc/partials/nav.ejs") %> 
+
+<body>
+  <%- include("E:/node-cc/partials/header.ejs") %> 
+
+  <div class="details">
+    <h3><%= quote.title %></h3>
+  
+      <p><%= quote.quote %></p>
+   
+    <p><%= quote.name %></p>
+
+   <button> <a class="delete" data-doc="<%= quote._id %>">delete</a></button>
+  </div>
+  <script>
+    const trashcan = document.querySelector('a.delete');
+
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/quotes/${trashcan.dataset.doc}`;
+
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    }); 
+  </script><br>
+  
+<%- include("E:/node-cc/partials/footer.ejs") %> 
+
+  
+</body>
+</html>

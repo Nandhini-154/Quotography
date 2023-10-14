@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("E:/node-cc/partials/header.ejs") %> 
+<body> 
+  
+    <%- include("E:/node-cc/partials/nav.ejs") %>
+    <div class="quotes">
+        <h2>All Quotes</h2>
+        <% if (quotes.length > 0) { %>
+            <% quotes.forEach(quote => { %>
+              <!--The below line is to display each blog in new page based on id-->
+              <a class="single" href="/quotes/ <%= quote._id %>">
+              <h3 class="title"><%= quote.title %></h3>
+              <p class="snipet"><%= quote.quote %></p>
+              <p class="author"><%= quote.name %></p>
+            </a>
+            <% }) %>
+          <% } else { %>
+            <p>There are no blogs to display...</p>
+          <% } %>
+    </div>
+    <%- include("E:/node-cc/partials/footer.ejs") %>
+</body>
+</html>
